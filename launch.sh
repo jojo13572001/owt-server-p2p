@@ -1,2 +1,2 @@
 #!/bin/bash
-node peerserver.js
+node src/index.js

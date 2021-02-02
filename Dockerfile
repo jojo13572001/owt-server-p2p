@@ -8,7 +8,7 @@ WORKDIR /usr/src/app/owt-server-p2p
 RUN npm install
 
 # Specify port app runs on
-EXPOSE 8095 8096
+EXPOSE 8095 8096 8097 8098
 
 # Run the app
-# CMD [ "node", "peerserver.js" ]
+# CMD [ "node", "src/index.js" ]
