@@ -1,15 +1,14 @@
-FROM ubuntu:18.04
+# Specifies where to get the base image (Node v12 in our case) and creates a new container for it
+FROM node:14
 
-ENV NODE_VERSION=12.6.0
-RUN apt-get update && apt-get install -y curl git
-RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
-ENV NVM_DIR=/root/.nvm
-RUN . "$NVM_DIR/nvm.sh" && nvm install ${NODE_VERSION}
-RUN . "$NVM_DIR/nvm.sh" && nvm use v${NODE_VERSION}
-RUN . "$NVM_DIR/nvm.sh" && nvm alias default v${NODE_VERSION}
-ENV PATH="/root/.nvm/versions/node/v${NODE_VERSION}/bin/:${PATH}"
-RUN node --version
-RUN npm --version
+# Set working directory. Paths will be relative this WORKDIR.
+WORKDIR /usr/src/app/owt-server-p2p
 
-RUN git clone https://github.com/open-webrtc-toolkit/owt-server-p2p.git
-RUN cd owt-server-p2p && npm install
+# Install dependencies
+RUN npm install
+
+# Specify port app runs on
+EXPOSE 8095 8096
+
+# Run the app
+# CMD [ "node", "peerserver.js" ]
