@@ -16,10 +16,10 @@ The default plain port is 8095, and the default secure port is 8096. These defau
 Connecting server with secure socket.io connections is recommended. The default certificate is stored in `cert` directory with two files: `cert.pem` and `key.pem`. Please replace them with  trusted ones applied from a trusted CA.
 
 ### Launch the server
-Run the following command to launch the server:
+Run the following command to launch the dockerized server:
 
 ```
-node src/index.js
+run.bat
 ```
 
 ### Stop the server
